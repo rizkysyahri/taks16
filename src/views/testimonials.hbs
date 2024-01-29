@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Testimonials</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/assets/css/testimonial.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary px-4">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="/assets/img/dumbways-logo.png" alt="" style="width: 50px" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarToggleExternalContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          style="padding: 2px 5px 2px 5px"
+        >
+          <span class="navbar-toggler-icon" style="width: 20px"></span>
+        </button>
+
+        <div
+          class="collapse navbar-collapse position-relative"
+          id="navbarSupportedContent"
+        >
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-3">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/"
+                >Home</a
+              >
+            </li>
+            {{#if isLogin}}
+            <li class="nav-item">
+              <a class="nav-link" href="/project">Add Project</a>
+            </li>
+            {{/if}}
+            <li class="nav-item dropdown">
+              <a class="nav-link fw-bold" href="/testimonial" role="button">
+                Testimonials
+              </a>
+            </li>
+          </ul>
+          <div class="d-flex gap-3 me-5">
+            <ul class="navbar-nav">
+              {{#if isLogin}}
+                <li class="nav-item">
+                  <a class="nav-link active"><i
+                      class="fa-solid fa-user fa-lg"
+                    ></i><span class="ms-3">Hello {{username}}</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/logout"><i class="fa-solid fa-right-from-bracket fa-lg"></i><span class="ms-2">Logout</span></a>
+                </li>
+              {{else}}
+                <a class="nav-link" href="/signIn">Login</a>
+                <a class="nav-link" href="/signUp">Register</a>
+              {{/if}}
+            </ul>
+          </div>
+          <button type="button" class="btn btn-submit rounded">
+            <a href="/contact" style="text-decoration: none; color: white"
+              >Contact</a
+            >
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="px-4 mb-5">
+      <div class="text-center my-5">
+        <h2 class="fw-bolder">Testimonial</h2>
+        <h4 class="fs-6">Rating By Star</h4>
+      </div>
+
+      <div class="div-rating-button">
+        <div class="d-flex gap-3">
+          <button class="button-rating-all" onclick="allTestimonial()">
+            All
+          </button>
+          <button class="button-rating" onclick="buttonRatingTestimonial(1)">
+            1 <i class="fa-solid fa-star fa-lg"></i>
+          </button>
+          <button class="button-rating" onclick="buttonRatingTestimonial(2)">
+            2 <i class="fa-solid fa-star fa-lg"></i>
+          </button>
+        </div>
+        <div class="d-flex gap-3">
+          <button class="button-rating" onclick="buttonRatingTestimonial(3)">
+            3 <i class="fa-solid fa-star fa-lg"></i>
+          </button>
+          <button class="button-rating" onclick="buttonRatingTestimonial(4)">
+            4 <i class="fa-solid fa-star fa-lg"></i>
+          </button>
+          <button class="button-rating" onclick="buttonRatingTestimonial(5)">
+            5 <i class="fa-solid fa-star fa-lg"></i>
+          </button>
+        </div>
+      </div>
+
+      <ul class="section-project-testimonial" id="testimoni"></ul>
+    </div>
+    <script src="js/testimonial.js"></script>
+  </body>
+</html>

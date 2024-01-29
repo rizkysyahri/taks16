@@ -1,0 +1,115 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/assets/css/home.css" />
+    <link rel="stylesheet" href="/assets/css/signIn.css" />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary px-4">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="/assets/img/dumbways-logo.png" alt="" style="width: 50px" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarToggleExternalContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          style="padding: 2px 5px 2px 5px"
+        >
+          <span class="navbar-toggler-icon" style="width: 20px"></span>
+        </button>
+
+        <div
+          class="collapse navbar-collapse position-relative"
+          id="navbarSupportedContent"
+        >
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-3">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            {{#if isLogin}}
+            <li class="nav-item">
+              <a class="nav-link" href="/project">Add Project</a>
+            </li>
+            {{/if}}
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="/testimonials" role="button">
+                Testimonials
+              </a>
+            </li>
+          </ul>
+          <div class="d-flex gap-3 me-5">
+            <a class="nav-link fw-bold" href="/signIn">Login</a>
+            <a class="nav-link" href="/signUp">Register</a>
+          </div>
+          <button type="button" class="btn btn-submit rounded">
+            <a
+              href="/contact"
+              style="text-decoration: none; color: white;"
+            >Contact</a>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div
+      class="d-flex  align-items-center justify-content-center mx-auto mt-5"
+      style=""
+    >
+      <form class="form-signIn" action="/signIn" method="post">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input
+            type="email"
+            name="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+          {{#if messages.failed}}
+         <span class="text-danger">{{messages.failed}}</span> 
+            {{/if}}
+          <div id="emailHelp" class="form-text">We'll never share your email
+            with anyone else.</div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input
+            type="password"
+            name="password"
+            class="form-control"
+            id="exampleInputPassword1"
+          />
+            {{#if messages.info}}
+         <span class="text-danger">{{messages.info}}</span> 
+            {{/if}}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+    </div>
+  </body>
+</html>

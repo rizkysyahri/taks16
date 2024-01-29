@@ -1,0 +1,171 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Project Details</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/assets/css/project.css" />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary px-4">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="/assets/img/dumbways-logo.png" alt="" style="width: 50px" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarToggleExternalContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          style="padding: 2px 5px 2px 5px"
+        >
+          <span class="navbar-toggler-icon" style="width: 20px"></span>
+        </button>
+
+        <div
+          class="collapse navbar-collapse position-relative"
+          id="navbarSupportedContent"
+        >
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-3">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            {{#if isLogin}}
+              <li class="nav-item">
+                <a class="nav-link fw-bold" href="/project">Add Project</a>
+              </li>
+            {{/if}}
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="/testimonials" role="button">
+                Testimonials
+              </a>
+            </li>
+          </ul>
+          <div class="d-flex gap-3 me-5">
+            <ul class="navbar-nav">
+              {{#if isLogin}}
+                <li class="nav-item">
+                  <a class="nav-link active"><i
+                      class="fa-solid fa-user fa-lg"
+                    ></i><span class="ms-3">Hello {{username}}</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/logout"><i
+                      class="fa-solid fa-right-from-bracket fa-lg"
+                    ></i><span class="ms-2">Logout</span></a>
+                </li>
+              {{else}}
+                <a class="nav-link" href="/signIn">Login</a>
+                <a class="nav-link" href="/signUp">Register</a>
+              {{/if}}
+            </ul>
+          </div>
+          <button type="button" class="btn btn-submit rounded">
+            <a
+              href="/contact"
+              style="text-decoration: none; color: white"
+            >Contact</a>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="w-100 h-100 my-5 px-4">
+      {{!-- <h1>{{id}}</h1> --}}
+      <h1 class="d-flex justify-content-center" id="input-project-name">
+        {{data.project_name}}
+      </h1>
+
+      {{#if isLogin}}
+        <a href="/project" class="d-flex text-decoration-none text-black mt-3">
+          <div>
+            <i
+              class="fa-solid fa-arrow-left fa-lg"
+              style="margin-right: 10px"
+            ></i>
+            Project
+          </div>
+        </a>
+      {{else}}
+        <a href="/" class="d-flex text-decoration-none text-black mt-3">
+          <div>
+            <i
+              class="fa-solid fa-arrow-left fa-lg"
+              style="margin-right: 10px"
+            ></i>
+            Home
+          </div>
+        </a>
+      {{/if}}
+
+      <div class="mx-auto my-5">
+        <div class="detail-1">
+          <img
+            src="/uploads/{{data.image}}"
+            alt="pomodoro"
+            id="fileUpload"
+            class="detail-img"
+          />
+
+          <div class="detail-section">
+            <h4 class="fs-5 fw-semibold">Duration</h4>
+            <div class="detail-duration">
+              <i class="fa-solid fa-calendar-days fa-lg"></i>
+              <p id="start-date" class="mb-0">{{data.start_date}}</p>
+              <span>-</span>
+              <p id="end-date" class="mb-0">{{data.end_date}}</p>
+            </div>
+
+            <div class="detail-duration">
+              <i class="fa-regular fa-clock fa-lg"></i>
+              <p class="mb-0">1 Month</p>
+            </div>
+
+            <div>
+              <h4 class="fs-5 mt-4 fw-semibold">Technologies</h4>
+              <div
+                id="technologies"
+                class="d-flex flex-row flex-wrap gap-3 mt-5"
+              >
+                {{#each data.technologies}}
+                  <i class="fa-brands {{this}} fa-xl"></i>
+                {{/each}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+          <p class="my-3 mt-5">Written By {{username}}</p>
+        
+      </div>
+
+      <p id="input-description" id="input-description">{{data.description}}</p>
+    </div>
+
+    {{! <script src="js/projectDetails.js"></script> }}
+  </body>
+</html>

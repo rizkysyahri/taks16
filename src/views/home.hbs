@@ -1,0 +1,312 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/assets/css/home.css" />
+    <link rel="stylesheet" href="/assets/css/project.css" />
+     <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary px-4">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="/assets/img/dumbways-logo.png" alt="" style="width: 50px" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarToggleExternalContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          style="padding: 2px 5px 2px 5px"
+        >
+          <span class="navbar-toggler-icon" style="width: 20px"></span>
+        </button>
+
+        <div
+          class="collapse navbar-collapse position-relative"
+          id="navbarSupportedContent"
+        >
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-3">
+            <li class="nav-item">
+              <a
+                class="nav-link active fw-bold"
+                aria-current="page"
+                href="/"
+              >Home</a>
+            </li>
+            {{#if isLogin}}
+            <li class="nav-item">
+              <a class="nav-link" href="/project">Add Project</a>
+            </li>
+            {{/if}}
+            <li class="nav-item">
+              <a class="nav-link" href="/testimonials" role="button">
+                Testimonials
+              </a>
+            </li>
+          </ul>
+          <div class="d-flex gap-3 me-5">
+            <ul class="navbar-nav">
+              {{#if isLogin}}
+                <li class="nav-item">
+                  <a class="nav-link active"><i
+                      class="fa-solid fa-user fa-lg"
+                    ></i><span class="ms-3">Hello {{username}}</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/logout"><i class="fa-solid fa-right-from-bracket fa-lg"></i><span class="ms-2">Logout</span></a>
+                </li>
+              {{else}}
+                <a class="nav-link" href="/signIn">Login</a>
+                <a class="nav-link" href="/signUp">Register</a>
+              {{/if}}
+            </ul>
+          </div>
+
+          <button type="button" class="btn btn-submit rounded">
+            <a
+              href="/contact"
+              style="text-decoration: none; color: white;"
+            >Contact</a>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- section -->
+    <div class="section px-4">
+      <div class="all-section">
+        <div class="section-description">
+          <div>
+            <h1 class="name-description">Hi I'm Rizky Syahri Ramadhan</h1>
+            <p class="description">
+              I'm very determined to become a reliable
+              <span class="fawkadvfafbka">developer</span>, not only reliable
+              but with that knowledge I can benefit many people.and Have a very
+              optimistic goal which is to grow at what i can do and always
+              looking for something new to learn and improve.
+            </p>
+          </div>
+          <div class="CV">
+            <div>
+              <a href="contact.html" class="cv-btn-contact">Contact</a>
+            </div>
+
+            <span class="due">
+              Download CV saya
+              <a
+                href="assets/cv/CV-Rizky Syahri Ramadhan.pdf"
+                download="CV-Rizky-Syahri-Ramadhan"
+              ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-file-down"
+                >
+                  <path
+                    d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"
+                  />
+                  <polyline points="14 2 14 8 20 8" />
+                  <path d="M12 18v-6" />
+                  <path d="m9 15 3 3 3-3" /></svg></a>
+            </span>
+          </div>
+          <div class="social">
+            <a
+              href="https://www.instagram.com/syahrrrh/"
+              style="margin-right: 25px"
+              target="_blank"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="34"
+                height="34"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-instagram"
+              >
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+              </svg>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/rizkysyahri/"
+              target="_blank"
+              style="margin-right: 25px"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="34"
+                height="34"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-linkedin"
+              >
+                <path
+                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                />
+                <rect width="4" height="12" x="2" y="9" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </a>
+            <a href="https://twitter.com/caiwhyy/" target="_blank">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="34"
+                height="34"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-twitter"
+              >
+                <path
+                  d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="section-2">
+          <div class="card">
+            <img
+              src="assets/img/WhatsApp Image 2023-11-20 at 11.00.44.jpeg"
+              alt="klay thompson"
+              style="
+                width: 100%;
+                height: auto;
+                border-radius: 10px 10px 0px 0px;
+              "
+            />
+
+            <div class="mfksufslaj">
+              <h4 style="margin-top: 0; margin-bottom: 0">
+                Rizky Syahri Ramadhan
+              </h4>
+              <span> Fullstack Developer </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- section -->
+
+    <div
+    style=" width: auto;
+  height: auto;
+  margin-left: 40px;
+  margin-right: 40px;"
+    >
+
+      <div class="content">
+        <h1 class="d-flex justify-content-center">Project</h1>
+        <ul class="content-project" id="contents">
+          {{#each data}}
+            <li class="content-li-project">
+              <a href="/project-detail/{{this.id}}" class="content-a-project">
+                <div class="position-relative">
+                  <img
+                    src="/uploads/{{this.image}}"
+                    alt="art image"
+                    class="w-100 object-fit-cover border rounded-top"
+                    style="height: 200px;"
+                  />
+
+                  <div class="my-2 p-3">
+                    <div class="d-flex gap-2 mb-1">
+                      <p class="fw-semibold mb-0">{{this.project_name}}</p>
+                      <span>|</span>
+                      <p class="mb-0">{{this.users}}.</p>
+                    </div>
+
+                    <div class="description-card d-flex">
+                      <p>{{this.start_date}}</p>
+                      <span>-</span>
+                      <p>{{this.end_date}}</p>
+                    </div>
+
+                    <p class="description">
+                      {{this.description}}
+                    </p>
+
+                    <div
+                      class="d-flex align-items-center justify-content-between ml-auto"
+                    >
+                      <div class="d-flex gap-3 mt-1">
+                        {{#each technologies}}
+                          <i class="fa-brands {{this}} fa-xl"></i>
+                        {{/each}}
+
+                      </div>
+                      {{#if isLogin}}
+                        <div class="d-flex gap-3">
+                          <a
+                            href="/delete/{{this.id}}"
+                            class="text-decoration-none text-black"
+                          >
+                            <i class="fa-solid fa-trash-can fa"></i>
+                          </a>
+                          <a
+                            href="/editProject/{{this.id}}"
+                            class="text-decoration text-black"
+                          >
+                            <i class="fa-solid fa-pen-to-square fa"></i>
+                          </a>
+                        </div>
+                      {{/if}}
+                    </div>
+
+                  </div>
+                </div>
+              </a>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+
+  </body>
+</html>

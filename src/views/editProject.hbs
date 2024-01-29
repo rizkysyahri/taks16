@@ -1,0 +1,272 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>edit project</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/assets/css/project.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary px-4">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="/assets/img/dumbways-logo.png" alt="" style="width: 50px" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarToggleExternalContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          style="padding: 2px 5px 2px 5px"
+        >
+          <span class="navbar-toggler-icon" style="width: 20px"></span>
+        </button>
+
+        <div
+          class="collapse navbar-collapse position-relative"
+          id="navbarSupportedContent"
+        >
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-3">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-bold" href="/project">Add Project</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="/testimonials" role="button">
+                Testimonials
+              </a>
+            </li>
+          </ul>
+          <div class="d-flex gap-3 me-5">
+            <ul class="navbar-nav">
+              {{#if isLogin}}
+                <li class="nav-item">
+                  <a class="nav-link active"><i
+                      class="fa-solid fa-user fa-lg"
+                    ></i><span class="ms-3">Hello {{username}}</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/logout"><i
+                      class="fa-solid fa-right-from-bracket fa-lg"
+                    ></i><span class="ms-2">Logout</span></a>
+                </li>
+              {{else}}
+                <a class="nav-link" href="/signIn">Login</a>
+                <a class="nav-link" href="/signUp">Register</a>
+              {{/if}}
+            </ul>
+          </div>
+          <button type="button" class="btn btn-submit rounded">
+            <a
+              href="/contact"
+              style="text-decoration: none; color: white"
+            >Contact</a>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="px-4">
+      <h2 class="d-flex justify-content-center my-5 fw-bolder">
+        EDIT MY PROJECT
+      </h2>
+
+      <a href="/project" class="d-flex text-decoration-none text-black mt-3">
+        <div>
+          <i
+            class="fa-solid fa-arrow-left fa-lg"
+            style="margin-right: 10px"
+          ></i>
+          Project
+        </div>
+      </a>
+
+      <div class="">
+        <form
+          action="/editProject/{{data.id}}"
+          method="POST"
+          class="form"
+          enctype="multipart/form-data"
+        >
+          <div>
+            <div class="mb-3">
+              <label for="input-project-name" class="form-label">Project Name</label>
+              <input
+                class="form-input"
+                id="input-project-name"
+                name="projectName"
+                value="{{data.project_name}}"
+              />
+            </div>
+            <div class="row mb-3">
+              <div class="col">
+                <label for="start-date">Start date</label>
+                <input
+                  type="date"
+                  id="start-date"
+                  class="form-input"
+                  name="startDate"
+                  value="{{data.start_date}}"
+                  required
+                />
+              </div>
+              <div class="col">
+                <label for="end-date">End date</label>
+                <input
+                  type="date"
+                  id="end-date"
+                  class="form-input"
+                  name="endDate"
+                  value="{{data.end_date}}"
+                  required
+                />
+              </div>
+            </div>
+
+            <div>
+              <label for="" class="mb-3">Technologies</label>
+              <div class="d-flex radio-round">
+                <div class="d-flex flex-column radio">
+                  <div class="d-flex mb-3">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="technologies"
+                      value="fa-node-js"
+                      id="option1"
+                      {{! checked="checked" }}
+                    />
+                    <label class="form-check-label" for="option1">
+                      <i
+                        class="fa-brands fa-node-js fa-lg"
+                        style="margin-right: 5px;"
+                      ></i>
+                      Node js
+                    </label>
+                  </div>
+                  <div class="d-flex">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="technologies"
+                      value="fa-react"
+                      id="option2"
+                      {{! checked="checked" }}
+                    />
+                    <label class="form-check-label" for="option2">
+                      <i
+                        class="fa-brands fa-react fa-lg"
+                        style="margin-right: 5px;"
+                      ></i>
+                      React js
+                    </label>
+                  </div>
+                </div>
+
+                <div class="d-flex flex-column radio">
+                  <div class="d-flex mb-3">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="technologies"
+                      value="fa-vuejs"
+                      id="option3"
+                      {{! checked="checked" }}
+                    />
+                    <label class="form-check-label" for="option3">
+                      <i
+                        class="fa-brands fa-vuejs fa-lg"
+                        style="margin-right: 5px;"
+                      ></i>
+                      Vue Js
+                    </label>
+                  </div>
+
+                  <div class="d-flex">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="technologies"
+                      value="fa-angular"
+                      id="option4"
+                      {{! checked="checked" }}
+                    />
+                    <label class="form-check-label" for="option-4">
+                      <i class="fa-brands fa-angular fa-lg"></i>
+                      Angular
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="">
+            <div class="">
+              <label for="input-description">Description</label>
+              <textarea
+                id="input-description"
+                cols="50"
+                rows="10"
+                class="messsage-form"
+                name="description"
+                value=""
+              >{{data.description}}</textarea>
+            </div>
+            <div class="input-group mb-3">
+              <label class="input-group-text" for="fileUpload">Upload</label>
+              <input
+                class="form-control"
+                id="fileUpload"
+                type="file"
+                name="image"
+              />
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-submit"
+              required
+            >Update</button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+
+    {{! <script src="js/project.js"></script> }}
+
+    <script>
+
+      
+      const techs = '{{data.technologies}}';
+      techs.split(',').map(item => {
+      document.querySelector(`input[value='${item}']`).checked = true })
+    </script>
+  </body>
+</html>
